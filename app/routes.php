@@ -13,5 +13,9 @@
 
 Route::get('/', function()
 {
+	echo '<pre>'; print_r(App\Models\User::all()->toArray()); echo '</pre>';
+	echo '<pre>'; print_r(App\Models\Article::all()->toArray()); echo '</pre>';
+	echo '<pre>'; print_r(App\Models\Page::all()->toArray()); echo '</pre>';
+
 	return View::make('hello');
 });
