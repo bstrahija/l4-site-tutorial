@@ -13,6 +13,7 @@ class CreateArticlesTable extends Migration {
 			$table->string('title');
 			$table->string('slug');
 			$table->text('body')->nullable();
+			$table->string('image')->nullable();
 			$table->integer('user_id');
 			$table->timestamps();
 		});
