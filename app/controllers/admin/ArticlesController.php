@@ -41,7 +41,7 @@ class ArticlesController extends \BaseController {
 
 	public function edit($id)
 	{
-		return 'Edit';
+		return \View::make('admin.articles.edit')->with('article', $this->article->find($id));
 	}
 
 	public function update($id)

@@ -41,7 +41,7 @@ class PagesController extends \BaseController {
 
 	public function edit($id)
 	{
-		return 'Edit';
+		return \View::make('admin.pages.edit')->with('page', $this->page->find($id));
 	}
 
 	public function update($id)
