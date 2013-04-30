@@ -10,9 +10,9 @@ class SentrySeeder extends Seeder {
 		DB::table('groups')->delete();
 		DB::table('users_groups')->delete();
 
-		User::create(array(
+		Sentry::getUserProvider()->create(array(
 			'email'       => 'admin@admin.com',
-			'password'    => Hash::make("admin"),
+			'password'    => "admin",
 			'first_name'  => 'John',
 			'last_name'   => 'McClane',
 			'activated'   => 1,
