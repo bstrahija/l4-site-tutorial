@@ -2,9 +2,9 @@
 
 @section('main')
 
-	<h2>Edit article</h2>
+	<h2>Create new article</h2>
 
-	{{ Form::model($article, array('method' => 'put', 'route' => array('admin.articles.update', $article->id))) }}
+	{{ Form::open(array('route' => 'admin.articles.store')) }}
 
 		<div class="control-group">
 			{{ Form::label('title', 'Title') }}

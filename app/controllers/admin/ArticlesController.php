@@ -1,57 +1,60 @@
 <?php namespace App\Controllers\Admin;
 
 use App\Models\Article;
+use Input, Redirect, Sentry, Str;
 
 class ArticlesController extends \BaseController {
 
-	/**
-	 * Instance of article model
-	 * @var Article
-	 */
-	protected $article;
-
-	/**
-	 * Inject article model
-	 * @param Article $article
-	 */
-	public function __construct(Article $article)
-	{
-		$this->article = $article;
-	}
-
 	public function index()
 	{
-		return \View::make('admin.articles.index')->with('articles', $this->article->all());
+		return \View::make('admin.articles.index')->with('articles', Article::all());
 	}
 
 	public function show($id)
 	{
-		return \View::make('admin.articles.show')->with('article', $this->article->find($id));
+		return \View::make('admin.articles.show')->with('article',Article::find($id));
 	}
 
 	public function create()
 	{
-		return 'Create';
+		return \View::make('admin.articles.create');
 	}
 
 	public function store()
 	{
-		return 'Store';
+		$article = new Article;
+		$article->title   = Input::get('title');
+		$article->slug    = Str::slug(Input::get('title'));
+		$article->body    = Input::get('body');
+		$article->user_id = Sentry::getUser()->id;
+		$article->save();
+
+		return Redirect::route('admin.articles.edit', $article->id);
 	}
 
 	public function edit($id)
 	{
-		return \View::make('admin.articles.edit')->with('article', $this->article->find($id));
+		return \View::make('admin.articles.edit')->with('article', Article::find($id));
 	}
 
 	public function update($id)
 	{
-		return 'Update';
+		$article = Article::find($id);
+		$article->title   = Input::get('title');
+		$article->slug    = Str::slug(Input::get('title'));
+		$article->body    = Input::get('body');
+		$article->user_id = Sentry::getUser()->id;
+		$article->save();
+
+		return Redirect::route('admin.articles.edit', $article->id);
 	}
 
 	public function destroy($id)
 	{
-		return 'Destroy';
+		$article = Article::find($id);
+		$article->delete();
+
+		return Redirect::route('admin.articles.index');
 	}
 
 }

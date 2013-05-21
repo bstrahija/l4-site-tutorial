@@ -2,6 +2,12 @@
 
 @section('main')
 
+	<h1>
+		Articles <a href="{{ URL::route('admin.articles.create') }}" class="btn btn-success"><i class="icon-plus-sign"></i> Add new article</a>
+	</h1>
+
+	<hr>
+
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -18,8 +24,11 @@
 					<td><a href="{{ URL::route('admin.articles.show', $article->id) }}">{{ $article->title }}</a></td>
 					<td>{{ $article->created_at }}</td>
 					<td>
-						<a href="{{ URL::route('admin.articles.edit', $article->id) }}" class="btn btn-success btn-mini">Edit</a>
-						<a href="{{ URL::route('admin.articles.destroy', $article->id) }}" class="btn btn-danger btn-mini">Delete</a>
+						<a href="{{ URL::route('admin.articles.edit', $article->id) }}" class="btn btn-success btn-mini pull-left">Edit</a>
+
+						{{ Form::open(array('route' => array('admin.articles.destroy', $article->id), 'method' => 'delete')) }}
+							<button type="submit" href="{{ URL::route('admin.articles.destroy', $article->id) }}" class="btn btn-danger btn-mini">Delete</butfon>
+						{{ Form::close() }}
 					</td>
 				</tr>
 			@endforeach

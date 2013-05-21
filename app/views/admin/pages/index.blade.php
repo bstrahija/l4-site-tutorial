@@ -2,6 +2,12 @@
 
 @section('main')
 
+	<h1>
+		Pages <a href="{{ URL::route('admin.pages.create') }}" class="btn btn-success"><i class="icon-plus-sign"></i> Add new page</a>
+	</h1>
+
+	<hr>
+
 	<table class="table table-striped">
 		<thead>
 			<tr>
