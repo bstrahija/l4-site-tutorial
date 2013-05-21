@@ -4,6 +4,8 @@
 
 	<h2>Edit article</h2>
 
+	{{ Notification::showAll() }}
+
 	{{ Form::model($article, array('method' => 'put', 'route' => array('admin.articles.update', $article->id))) }}
 
 		<div class="control-group">

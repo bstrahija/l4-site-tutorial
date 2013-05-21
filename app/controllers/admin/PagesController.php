@@ -1,7 +1,7 @@
 <?php namespace App\Controllers\Admin;
 
 use App\Models\Page;
-use Input, Redirect, Sentry, Str;
+use Input, Notification, Redirect, Sentry, Str;
 
 class PagesController extends \BaseController {
 
@@ -29,6 +29,8 @@ class PagesController extends \BaseController {
 		$page->user_id = Sentry::getUser()->id;
 		$page->save();
 
+		Notification::success('The page was saved.');
+
 		return Redirect::route('admin.pages.edit', $page->id);
 	}
 
@@ -46,6 +48,8 @@ class PagesController extends \BaseController {
 		$page->user_id = Sentry::getUser()->id;
 		$page->save();
 
+		Notification::success('The page was saved.');
+
 		return Redirect::route('admin.pages.edit', $page->id);
 	}
 
@@ -53,6 +57,8 @@ class PagesController extends \BaseController {
 	{
 		$page = Page::find($id);
 		$page->delete();
+
+		Notification::success('The page was deleted.');
 
 		return Redirect::route('admin.pages.index');
 	}

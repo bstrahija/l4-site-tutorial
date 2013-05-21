@@ -4,6 +4,8 @@
 
 	<h2>Edit page</h2>
 
+	{{ Notification::showAll() }}
+
 	{{ Form::model($page, array('method' => 'put', 'route' => array('admin.pages.update', $page->id))) }}
 
 		<div class="control-group">

@@ -1,7 +1,7 @@
 <?php namespace App\Controllers\Admin;
 
 use App\Models\Article;
-use Input, Redirect, Sentry, Str;
+use Input, Notification, Redirect, Sentry, Str;
 
 class ArticlesController extends \BaseController {
 
@@ -29,6 +29,8 @@ class ArticlesController extends \BaseController {
 		$article->user_id = Sentry::getUser()->id;
 		$article->save();
 
+		Notification::success('The article was saved.');
+
 		return Redirect::route('admin.articles.edit', $article->id);
 	}
 
@@ -46,6 +48,8 @@ class ArticlesController extends \BaseController {
 		$article->user_id = Sentry::getUser()->id;
 		$article->save();
 
+		Notification::success('The article was saved.');
+
 		return Redirect::route('admin.articles.edit', $article->id);
 	}
 
@@ -53,6 +57,8 @@ class ArticlesController extends \BaseController {
 	{
 		$article = Article::find($id);
 		$article->delete();
+
+		Notification::success('The article was deleted.');
 
 		return Redirect::route('admin.articles.index');
 	}

@@ -4,6 +4,8 @@
 
 	<h2>Create new article</h2>
 
+	{{ Notification::showAll() }}
+
 	{{ Form::open(array('route' => 'admin.articles.store')) }}
 
 		<div class="control-group">
