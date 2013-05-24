@@ -4,7 +4,7 @@
 
 	<h2>Create new page</h2>
 
-	{{ Notification::showAll() }}
+	@include('admin._partials.notifications')
 
 	{{ Form::open(array('route' => 'admin.pages.store')) }}
 

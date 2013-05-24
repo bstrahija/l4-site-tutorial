@@ -1,6 +1,7 @@
 <?php namespace App\Controllers\Admin;
 
 use App\Models\Article;
+use App\Services\Validators\ArticleValidator;
 use Input, Notification, Redirect, Sentry, Str;
 
 class ArticlesController extends \BaseController {
@@ -22,16 +23,23 @@ class ArticlesController extends \BaseController {
 
 	public function store()
 	{
-		$article = new Article;
-		$article->title   = Input::get('title');
-		$article->slug    = Str::slug(Input::get('title'));
-		$article->body    = Input::get('body');
-		$article->user_id = Sentry::getUser()->id;
-		$article->save();
+		$validation = new ArticleValidator;
 
-		Notification::success('The article was saved.');
+		if ($validation->passes())
+		{
+			$article = new Article;
+			$article->title   = Input::get('title');
+			$article->slug    = Str::slug(Input::get('title'));
+			$article->body    = Input::get('body');
+			$article->user_id = Sentry::getUser()->id;
+			$article->save();
 
-		return Redirect::route('admin.articles.edit', $article->id);
+			Notification::success('The article was saved.');
+
+			return Redirect::route('admin.articles.edit', $article->id);
+		}
+
+		return Redirect::back()->withInput()->withErrors($validation->errors);
 	}
 
 	public function edit($id)
@@ -41,16 +49,23 @@ class ArticlesController extends \BaseController {
 
 	public function update($id)
 	{
-		$article = Article::find($id);
-		$article->title   = Input::get('title');
-		$article->slug    = Str::slug(Input::get('title'));
-		$article->body    = Input::get('body');
-		$article->user_id = Sentry::getUser()->id;
-		$article->save();
+		$validation = new ArticleValidator;
 
-		Notification::success('The article was saved.');
+		if ($validation->passes())
+		{
+			$article = Article::find($id);
+			$article->title   = Input::get('title');
+			$article->slug    = Str::slug(Input::get('title'));
+			$article->body    = Input::get('body');
+			$article->user_id = Sentry::getUser()->id;
+			$article->save();
 
-		return Redirect::route('admin.articles.edit', $article->id);
+			Notification::success('The article was saved.');
+
+			return Redirect::route('admin.articles.edit', $article->id);
+		}
+
+		return Redirect::back()->withInput()->withErrors($validation->errors);
 	}
 
 	public function destroy($id)

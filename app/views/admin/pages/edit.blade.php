@@ -4,7 +4,7 @@
 
 	<h2>Edit page</h2>
 
-	{{ Notification::showAll() }}
+	@include('admin._partials.notifications')
 
 	{{ Form::model($page, array('method' => 'put', 'route' => array('admin.pages.update', $page->id))) }}
 
