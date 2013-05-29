@@ -8,7 +8,7 @@ return array(
 	|--------------------------------------------------------------------------
 	|
 	| This option controls the default session "driver" that will be used on
-	| requests. By default we will use the lightweight cookie driver but
+	| requests. By default, we will use the lightweight native driver but
 	| you may specify any of the other wonderful drivers provided here.
 	|
 	| Supported: "native", "cookie", "database", "apc",
@@ -36,7 +36,7 @@ return array(
 	| Session File Location
 	|--------------------------------------------------------------------------
 	|
-	| When using the "native" session driver, we need a location where session
+	| When using the native session driver, we need a location where session
 	| files may be stored. A default has been set for you but a different
 	| location may be specified. This is only needed for file sessions.
 	|
@@ -120,19 +120,6 @@ return array(
 	|
 	*/
 
-	'domain' => '',
-
-	/*
-	|--------------------------------------------------------------------------
-	| Session Payload Cookie Name
-	|--------------------------------------------------------------------------
-	|
-	| When using the "cookie" session driver, you may configure the name of
-	| the cookie used as the session "payload". This cookie actually has
-	| the encrypted session data stored within it for the application.
-	|
-	*/
-
-	'payload' => 'laravel_payload',
+	'domain' => null,
 
 );
