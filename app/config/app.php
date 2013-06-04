@@ -183,7 +183,8 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
 		'Sentry'          => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
 		'Notification'    => 'Krucas\Notification\Facades\Notification',
-
+		'Article'         => 'App\Models\Article',
+		'Page'            => 'App\Models\Page',
 	),
 
 );

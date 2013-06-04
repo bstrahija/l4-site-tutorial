@@ -5,9 +5,9 @@
 <ul>
 	@foreach ($entries as $entry)
 		<li>
-			<h3>{{ $entry->title }}</h3>
-			<h5>Published at {{ $entry->published_at }} &bull; by {{ $entry->author->first_name }}</h5>
-			{{ $entry->body }}
+			<h3><a href="{{ URL::route('article', $entry->slug) }}">{{ $entry->title }}</a></h3>
+			<h5>Created at {{ $entry->created_at }} &bull; by {{ $entry->author->email }}</h5>
+			{{ Str::limit($entry->body, 100) }}
 		</li>
 	@endforeach
 </ul>
