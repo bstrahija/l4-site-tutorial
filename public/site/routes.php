@@ -22,4 +22,4 @@ Route::get('blog/{slug}', array('as' => 'article', function($slug) {
 Route::get('{slug}', array('as' => 'page', function($slug) {
 	return View::make('site::page')
 	           ->with('entry', Page::where('slug', $slug)->first());
-}));
+}))->where('slug', '^((?!admin).)*$');
