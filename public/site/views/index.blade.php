@@ -1,6 +1,8 @@
 @include('site::_partials/header')
 
-<h2>{{ $entry->title }}</h2>
-{{ $entry->body }}
+<article>
+	<h2>{{ $entry->title }}</h2>
+	{{ $entry->body }}
+</article>
 
 @include('site::_partials/footer')

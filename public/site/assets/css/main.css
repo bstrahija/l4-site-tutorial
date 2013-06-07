@@ -1,1 +1,44 @@
-body { background: #eee; }
+@import url(http://fonts.googleapis.com/css?family=Vollkorn:400,700);
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+
+/* Global */
+body { background: #eee url(../img/bg.png); font-family: 'Vollkorn', Georgia, "Times New Roman", serif; color: #444; font-size: 15px; }
+h1, h2, h3, h4, h5, h6 { font-family: Lobster, Georgia, "Times New Roman", serif; font-weight: normal; }
+h1      { font-size: 48px; }
+h2      { font-size: 36px; }
+h3      { font-size: 30px; }
+h4      { font-size: 24px; }
+h5      { font-size: 20px; }
+h6      { font-size: 16px; }
+p       { margin: 0 0 20px 0; font-size: 15px; line-height: 160%; }
+a       { color: #21759B; border-bottom: 1px dotted #ccc; text-decoration: none; -webkit-transition:color .1s ease-in; transition:color .1s ease-in; }
+a:hover { color: #1F536C; }
+hr      { margin: 20px 0; border: 0; border-top: 1px solid #ddd; border-bottom: 1px solid #eee; }
+#layout { width: 960px; margin: 0 auto; padding: 30px 0 20px 0; }
+
+/* Header */
+#header      { height: 1%; clear: both; margin: 0 0 50px 0; }
+#header h1   { font-size: 48px; }
+#header h1 a { text-decoration: none; border: 0 none; }
+
+/* Navigation */
+#nav             { margin: 0 0 15px 3px; padding: 15px 0 0 0; background: transparent url(../img/l.gif) no-repeat left top; height: 1%; clear: both; }
+#nav:after       { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+#nav ul          { list-style-type: none; margin: 0; padding: 0; }
+#nav li          { margin-right: 25px; font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif; font-size: 12px; line-height: 160%; float: left; }
+#nav li.active a { font-weight: bold; color: #333; }
+#nav li a        { display: block; border: 0 none; color: #555; }
+#nav li a:hover  { color: #21759B; }
+
+/* Footer */
+#footer { padding: 10px 0; background: transparent url(../img/l.gif) no-repeat top left; clear: both; margin: 80px 0 20px 0; }
+#footer p { font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif; font-size: 11px; line-height: 150%; color: #777; }
+
+/* Content */
+.articles { margin: 40px 0; padding: 0; list-style-type: none; }
+.articles li { margin: 50px 0; }
+.articles article h3 { font-size: 28px; }
+article h3 { font-size: 36px; margin: 0 0 10px 0; }
+article h3 a { border: none; color: #444; }
+article h3 a:hover { color: #21759B; }
+article h5 { font-size: 11px; margin: 0 0 20px 0; font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif; color: #777; }
