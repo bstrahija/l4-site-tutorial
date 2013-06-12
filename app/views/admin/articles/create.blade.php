@@ -6,7 +6,7 @@
 
 	@include('admin._partials.notifications')
 
-	{{ Form::open(array('route' => 'admin.articles.store')) }}
+	{{ Form::open(array('route' => 'admin.articles.store', 'files' => true)) }}
 
 		<div class="control-group">
 			{{ Form::label('title', 'Title') }}
@@ -19,6 +19,13 @@
 			{{ Form::label('body', 'Content') }}
 			<div class="controls">
 				{{ Form::textarea('body') }}
+			</div>
+		</div>
+
+		<div class="control-group">
+			{{ Form::label('image', 'Image') }}
+			<div class="controls">
+				{{ Form::file('image') }}
 			</div>
 		</div>
 

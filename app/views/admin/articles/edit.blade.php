@@ -6,7 +6,7 @@
 
 	@include('admin._partials.notifications')
 
-	{{ Form::model($article, array('method' => 'put', 'route' => array('admin.articles.update', $article->id))) }}
+	{{ Form::model($article, array('method' => 'put', 'route' => array('admin.articles.update', $article->id), 'files' => true)) }}
 
 		<div class="control-group">
 			{{ Form::label('title', 'Title') }}
@@ -20,6 +20,17 @@
 			<div class="controls">
 				{{ Form::textarea('body') }}
 			</div>
+		</div>
+
+		<div class="control-group">
+			{{ Form::label('image', 'Image') }}
+			<div class="controls">
+				{{ Form::file('image') }}
+			</div>
+
+			<?php if ($article->image) : ?>
+				<a href="<?php echo $article->image; ?>"><img src="<?php echo Image::thumb($article->image, 80); ?>" alt=""></a>
+			<?php endif; ?>
 		</div>
 
 		<div class="form-actions">
