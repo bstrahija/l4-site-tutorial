@@ -12,7 +12,6 @@
 		<hr>
 	@endif
 
-
 	<a href="{{ route('article.list') }}">&laquo; Back to articles</a>
 </article>
 
