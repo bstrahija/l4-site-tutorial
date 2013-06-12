@@ -7,6 +7,12 @@
 
 	<hr>
 
+	@if ($entry->image)
+		<figure><img src="{{ Image::resize($entry->image, 800, 600) }}" alt=""></figure>
+		<hr>
+	@endif
+
+
 	<a href="{{ route('article.list') }}">&laquo; Back to articles</a>
 </article>
 
