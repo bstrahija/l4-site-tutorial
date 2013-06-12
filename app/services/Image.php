@@ -84,7 +84,7 @@ class Image {
 			try
 			{
 				// Create dir if missing
-				if ( ! File::isDirectory($targetDirPath) and $targetDirPath) File::makeDirectory($targetDirPath);
+				if ( ! File::isDirectory($targetDirPath) and $targetDirPath) @File::makeDirectory($targetDirPath);
 
 				// Set the size
 				$size = new \Imagine\Image\Box($width, $height);
