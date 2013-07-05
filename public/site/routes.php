@@ -36,7 +36,7 @@ Route::get('{slug}', array('as' => 'page', function($slug)
 // 404 Page
 App::missing(function($exception)
 {
-    return Response::view('site::404', array(), 404);
+	return Response::view('site::404', array(), 404);
 });
 
 
