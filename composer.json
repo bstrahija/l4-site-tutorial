@@ -15,6 +15,7 @@
 			"app/database/seeds",
 			"app/tests/TestCase.php",
 			"app/services",
+			"app/facades",
 			"public/site"
 		]
 	},

@@ -185,6 +185,7 @@ return array(
 		'Notification'    => 'Krucas\Notification\Facades\Notification',
 		'Article'         => 'App\Models\Article',
 		'Page'            => 'App\Models\Page',
+		'Image'           => 'App\Facades\ImageFacade',
 	),
 
 );

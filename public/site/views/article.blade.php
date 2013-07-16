@@ -1,11 +1,18 @@
 @include('site::_partials/header')
 
-<h2>{{ $entry->title }}</h2>
-<h4>Published at {{ $entry->created_at }} &bull; by {{ $entry->author->email }}</h4>
-{{ $entry->body }}
+<article>
+	<h3>{{ $entry->title }}</h3>
+	<h5>Published at {{ $entry->created_at }} &bull; by {{ $entry->author->email }}</h5>
+	{{ $entry->body }}
 
-<hr>
+	<hr>
 
-<a href="{{ URL::route('article.list') }}">&laquo; Back to articles</a>
+	@if ($entry->image)
+		<figure><img src="{{ Image::resize($entry->image, 800, 600) }}" alt=""></figure>
+		<hr>
+	@endif
+
+	<a href="{{ route('article.list') }}">&laquo; Back to articles</a>
+</article>
 
 @include('site::_partials/footer')
