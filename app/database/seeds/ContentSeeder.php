@@ -7,8 +7,8 @@ class ContentSeeder extends Seeder {
 
 	public function run()
 	{
-		DB::table('articles')->delete();
-		DB::table('pages')->delete();
+		DB::table('articles')->truncate(); // Using truncate function so all info will be cleared when re-seeding.
+		DB::table('pages')->truncate();
 
 		Article::create(array(
 			'title'   => 'First post',
