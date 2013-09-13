@@ -45,6 +45,9 @@ class AppInstallCommand extends Command {
 		// App migraions
 		$this->call('migrate');
 
+		// And seed it
+		$this->call('app:seed');
+
 		echo 'Done.'.PHP_EOL;
 	}
 
